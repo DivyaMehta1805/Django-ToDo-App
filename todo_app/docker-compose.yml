@@ -1,0 +1,12 @@
+version: '3'
+
+services:
+  web:
+    build: .
+    command: gunicorn todo_app.wsgi:application --bind 0.0.0.0:8000
+    volumes:
+      - .:/todo_app
+      # - .:todo/static
+    ports:
+      - "9000:8000"
+    # No depends_on because SQLite doesn't need a separate database service
