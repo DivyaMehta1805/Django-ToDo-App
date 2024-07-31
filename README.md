@@ -27,24 +27,23 @@ Running the project:
 
        > cd todo_app 
        > python manage.py runserver  
-Detailed Description of Changes Made By Divya Mehta:
-##Tasks Completed Per Day - Overview
--This feature of the ToDo application provides a visual representation of tasks completed versus tasks not completed over the past 30 days.
--It leverages Chart.js to render a bar chart, showing counts of tasks per day.
--The data is fetched from a backend API endpoint that aggregates tasks based on their completion status.
+#Detailed Description of Changes Made By Divya Mehta:
+    Tasks Completed Per Day - Overview
+        -This feature of the ToDo application provides a visual representation of tasks completed versus tasks not completed over the past 30 days.
+        -It leverages Chart.js to render a bar chart, showing counts of tasks per day.
+        -The data is fetched from a backend API endpoint that aggregates tasks based on their completion status.
 
-##Architecture and Functionality
- #View Functions (views.py)
-  -tasks_graph(request):
-  -This view renders the tasks_graph.html template.
-  -It calls the tasks_per_day_view function to prepare the data required for the chart but doesn't pass the data directly to the template; it relies on the frontend to fetch it via an API 
-   call.
- #tasks_per_day_view(request):
-  -This view is responsible for aggregating and providing the task data in JSON format.
-  -It calculates task counts for completed and not completed tasks over the past 30 days.
-  -Constructs a dictionary with dates as keys and counts as values.
-  -Combines and formats the dates and counts into a JSON response.
-#Template (tasks_graph.html)
+    2.Architecture and Functionality
+        View Functions (views.py)
+               -tasks_graph(request):
+               -This view renders the tasks_graph.html template.
+               -It calls the tasks_per_day_view function to prepare the data required for the chart but doesn't pass the data directly to the template;                   it relies on the frontend to fetch it via an API call.
+    3.tasks_per_day_view(request):
+        -This view is responsible for aggregating and providing the task data in JSON format.
+        -It calculates task counts for completed and not completed tasks over the past 30 days.
+        -Constructs a dictionary with dates as keys and counts as values.
+        -Combines and formats the dates and counts into a JSON response.
+    4.Template (tasks_graph.html)
   -HTML Structure:
   -The template includes a <canvas> element where the Chart.js graph will be rendered.
   -It links to a CSS file for basic styling and includes the Chart.js library for rendering charts.
